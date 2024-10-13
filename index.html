@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jókai Mór Kvíz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jókai Mór Kvíz</h1>
+    <form id="quizForm">
+        <div>
+            <p>Melyik szegedi épületet írta le Jókai Mór A kőszívű ember fiai c. regényében?</p>
+            <input type="radio" id="answer1" name="jokai" value="a">
+            <label for="answer1">a) Dóm tér</label><br>
+            <input type="radio" id="answer2" name="jokai" value="b">
+            <label for="answer2">b) Szegedi vár</label><br>
+            <input type="radio" id="answer3" name="jokai" value="c">
+            <label for="answer3">c) Anna-kút</label><br>
+            <input type="radio" id="answer4" name="jokai" value="d">
+            <label for="answer4">d) Széchenyi tér</label>
+        </div>
+        <button type="submit">Beküld</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const answer = document.querySelector('input[name="jokai"]:checked').value;
+            const resultDiv = document.getElementById("result");
+            const correctAnswer = "b) Szegedi vár";
+            if (answer === "b") {
+                resultDiv.textContent = "Helyes válasz!";
+            } else {
+                resultDiv.textContent = `Helytelen válasz. A helyes válasz: ${correctAnswer}`;
+            }
+        });
+    </script>
+</body>
+</html>
